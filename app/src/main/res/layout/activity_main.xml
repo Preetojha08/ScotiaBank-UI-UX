@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/_10sdp"
+    android:weightSum="4"
+    tools:context=".MainActivity">
+
+    <!-- Logo -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="4">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/_10sdp"
+            android:src="@drawable/login_question_mark" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/_5sdp">
+
+            <ImageView
+                android:layout_width="@dimen/_85sdp"
+                android:layout_height="@dimen/_85sdp"
+                android:src="@drawable/login_logo" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/scotia_bold"
+                    android:text="Welcome to"
+                    android:textSize="@dimen/_30sdp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/scotia_bold"
+                    android:text="Scotiabank"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_35sdp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!-- Login Input -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_45sdp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:id="@+id/login_input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/_10sdp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/red"
+                app:hintTextColor="@color/red"
+                android:hint="Username">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/login_edittext_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/login_username"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:textSize="@dimen/_12sdp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:hint="Password"
+                app:boxStrokeColor="@color/red"
+                app:hintTextColor="@color/red"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/red">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/login_edittext_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/login_pass"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:inputType="textWebPassword"
+                    android:textSize="@dimen/_12sdp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/login_textview_forgotusername_pass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text=" Forgot your Username or Password ?"
+                android:textSize="@dimen/_11sdp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/login_button_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:background="@drawable/button_sqaure_bg"
+                android:backgroundTint="@color/red"
+                android:fontFamily="@font/scotia_bold"
+                android:padding="@dimen/_5sdp"
+                android:text="Login"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>
