@@ -1,22 +1,20 @@
 package com.example.scotiabankjavaapp;
 
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProfileActivity extends AppCompatActivity {
 
 
-    ListView listViewAcc ;
-    ListView listViewApp;
-    ArrayAdapter<String> arrapp;
-    ArrayAdapter<String> arracc;
+    RecyclerView recyclerViewAcc;
+    RecyclerView recyclerViewApp;
     String[] accInfoItems={"Account Display","Manage Autodeposit","Manage Interac Registration","Manage Credit Score","Edit Transaction Limit" };
     String[] appInfoItems={"Application Theme","Application Language","Manage Widgets"};
 
@@ -26,19 +24,42 @@ public class ProfileActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_profile);
 
-        listViewAcc = (ListView) findViewById(R.id.accountlistview);
-        listViewApp = (ListView) findViewById(R.id.applistview);
+        recyclerViewAcc = (RecyclerView) findViewById(R.id.accountrecyclerview);
+        recyclerViewApp = (RecyclerView) findViewById(R.id.apprecyclerview);
 
-        arracc = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,accInfoItems);
-        listViewAcc.setAdapter(arracc);
+        List<String> accInfoItems = new ArrayList<>();
+        List<String> appInfoItems = new ArrayList<>();
 
-        arrapp.add("Application Theme");
-        arrapp.add("Application Language");
-        arrapp.add("Manage Widgets");
+        List<Integer> accInfoImages = new ArrayList<>();
+        List<Integer> appInfoImages = new ArrayList<>();
 
-        arrapp = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,appInfoItems);
-        listViewApp.setAdapter(arrapp);
+        accInfoItems.add("Account Display");
+        accInfoItems.add("Manage Autodeposit");
+        accInfoItems.add("Manage Interac Registration");
+        accInfoItems.add("Manage Credit Score");
+        accInfoItems.add("Edit Transaction Limit");
 
+        accInfoImages.add(R.drawable.displayacc);
+        accInfoImages.add(R.drawable.autodeposit);
+        accInfoImages.add(R.drawable.accinteract);
+        accInfoImages.add(R.drawable.creditcard);
+        accInfoImages.add(R.drawable.acclimitedmoney);
+
+        appInfoItems.add("Application Theme");
+        appInfoItems.add("Application Language");
+        appInfoItems.add("Manage Widgets");
+
+        appInfoImages.add(R.drawable.theme);
+        appInfoImages.add(R.drawable.banklanguage);
+        appInfoImages.add(R.drawable.appwidgets);
+
+        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(this,accInfoItems,accInfoImages);
+        recyclerViewAcc.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        recyclerViewAcc.setAdapter(recyclerViewAdapter);
+
+        RecyclerViewAdapter recyclerViewAdapter2 = new RecyclerViewAdapter(this,appInfoItems,appInfoImages);
+        recyclerViewApp.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        recyclerViewApp.setAdapter(recyclerViewAdapter2);
 
     }
 }

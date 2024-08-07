@@ -28,9 +28,9 @@ public class HomeActivity extends AppCompatActivity {
         if (logoutFlag)
         {
             Log.d("Logout", "Yeh kses run hoga agar ye wala hoga toh problem hogi"+logoutFlag);
-            handler.postDelayed(runnable, 50000);
+            handler.postDelayed(runnable, 50000000);
         }
-
+//        50000
         logoutBtn = (ImageView) findViewById(R.id.homeLogoutBtn);
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
