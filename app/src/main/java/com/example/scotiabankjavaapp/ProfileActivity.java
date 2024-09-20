@@ -15,8 +15,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     RecyclerView recyclerViewAcc;
     RecyclerView recyclerViewApp;
-    String[] accInfoItems={"Account Display","Manage Autodeposit","Manage Interac Registration","Manage Credit Score","Edit Transaction Limit" };
-    String[] appInfoItems={"Application Theme","Application Language","Manage Widgets"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

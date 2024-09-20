@@ -19,6 +19,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     List<Integer> Images;
 
 
+
     public RecyclerViewAdapter(Context context, List<String> text, List<Integer> images) {
         this.text = text;
         Images = images;
