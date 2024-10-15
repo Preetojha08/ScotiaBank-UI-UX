@@ -86,6 +86,16 @@
 
         </LinearLayout>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="© Creatures ♥ All Right Reserved"
+            android:paddingVertical="@dimen/_10sdp"
+            android:textColor="@color/red"
+            android:textSize="@dimen/_10sdp"
+            android:gravity="center"
+            android:fontFamily="@font/scotia_regular"/>
+
     </LinearLayout>
 
 </ScrollView>

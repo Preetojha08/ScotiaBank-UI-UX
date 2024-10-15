@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -22,9 +23,7 @@ public class MoveMoneyActivity extends AppCompatActivity {
     RecyclerView recyclerView_otherpay;
     RecyclerView recyclerView_international;
 
-    RecyclerView.Adapter adapter_interact;
-    RecyclerView.Adapter adapter_otherpay;
-    RecyclerView.Adapter adapter_international;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +49,17 @@ public class MoveMoneyActivity extends AppCompatActivity {
 
         international_list.add("Send Money Across The World");
 
+        RecyclerViewAdapter adapter_interact = new RecyclerViewAdapter(this,interact_list,10);
+        recyclerView_interact.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        recyclerView_interact.setAdapter(adapter_interact);
 
+        RecyclerViewAdapter adapter_otherpay = new RecyclerViewAdapter(this,other_pay_list,10);
+        recyclerView_otherpay.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        recyclerView_otherpay.setAdapter(adapter_otherpay);
 
+        RecyclerViewAdapter adapter_international = new RecyclerViewAdapter(this,international_list,10);
+        recyclerView_international.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        recyclerView_international.setAdapter(adapter_international);
 
 
 

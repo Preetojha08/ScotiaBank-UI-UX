@@ -1,6 +1,7 @@
 package com.example.scotiabankjavaapp;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +17,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     LayoutInflater layoutInflater;
     List<String> text;
+    int layout_number ;
+
     List<Integer> Images;
 
-
+    public RecyclerViewAdapter(Context context, List<String> text, int layout_number) {
+        this.text = text;
+        this.layout_number = layout_number;
+        this.layoutInflater =LayoutInflater.from(context);
+    }
 
     public RecyclerViewAdapter(Context context, List<String> text, List<Integer> images) {
         this.text = text;
@@ -29,14 +36,27 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @NonNull
     @Override
     public RecyclerViewAdapter.viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = layoutInflater.inflate(R.layout.settinglayout,parent,false);
+
+        View view;
+        if (layout_number == 10) {
+            view = layoutInflater.inflate(R.layout.textlayout, parent, false);
+        } else {
+            view = layoutInflater.inflate(R.layout.settinglayout, parent, false);
+        }
+
         return new viewHolder(view);
+
+
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewAdapter.viewHolder holder, int position) {
         holder.tv.setText(text.get(position));
-        holder.imgview.setImageResource(Images.get(position));
+        if (layout_number == 0 )
+        {
+            holder.imgview.setImageResource(Images.get(position));
+        }
+
     }
 
     @Override
@@ -48,10 +68,21 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         TextView tv;
         ImageView imgview;
+
         public viewHolder(@NonNull View itemView) {
             super(itemView);
+
             imgview = itemView.findViewById(R.id.setting_rv_imageview);
-            tv = itemView.findViewById(R.id.setting_rv_textview);
+            if (layout_number == 10)
+            {
+                tv = itemView.findViewById(R.id.textlayout_rv_textview);
+            }
+            else
+            {
+                tv = itemView.findViewById(R.id.setting_rv_textview);
+            }
+
+
         }
     }
 

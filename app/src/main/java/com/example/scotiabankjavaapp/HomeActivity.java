@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -19,11 +20,24 @@ public class HomeActivity extends AppCompatActivity {
     ImageView logoutBtn,profileBtn;
     boolean logoutFlag = true;
     Handler handler = new Handler();
+
+    LinearLayout move_money_ll;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_home);
+
+        move_money_ll=(LinearLayout) findViewById(R.id.home_move_money_layout);
+
+        move_money_ll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(HomeActivity.this,SendMoneyActivity.class));
+            }
+        });
 
         if (logoutFlag)
         {
